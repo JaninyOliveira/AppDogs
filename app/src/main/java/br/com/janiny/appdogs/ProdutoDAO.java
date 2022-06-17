@@ -16,6 +16,13 @@ public class ProdutoDAO {
         valores.put("nome",produto.getNome());
         valores.put("categoria",produto.getCategoria());
         valores.put("castracao",produto.getCastracao());
+        valores.put("raca",produto.getRaca());
+        valores.put("porte",produto.getPorte());
+        valores.put("idade",produto.getIdade());
+        valores.put("ONG",produto.getONG());
+        valores.put("contato",produto.getContato());
+        valores.put("foto",produto.getFoto());
+        valores.put("observacoes",produto.getObservacoes());
 
         Banco conn = new Banco(context);
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -30,6 +37,14 @@ public class ProdutoDAO {
         ContentValues valores = new ContentValues();
         valores.put("nome",produto.getNome());
         valores.put("categoria",produto.getCategoria());
+        valores.put("castracao",produto.getCastracao());
+        valores.put("raca",produto.getRaca());
+        valores.put("porte",produto.getPorte());
+        valores.put("idade",produto.getIdade());
+        valores.put("ONG",produto.getONG());
+        valores.put("contato",produto.getContato());
+        valores.put("foto",produto.getFoto());
+        valores.put("observacoes",produto.getObservacoes());
 
         Banco conn = new Banco(context);
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -65,6 +80,13 @@ public class ProdutoDAO {
                 pro.setNome(cursor.getString(1));
                 pro.setCategoria(cursor.getString(2));
                 pro.setCastracao(cursor.getString(3));
+                pro.setRaca(cursor.getString(4));
+                pro.setPorte(cursor.getString(5));
+                pro.setIdade(cursor.getString(6));
+                pro.setONG(cursor.getString(7));
+                pro.setContato(cursor.getString(8));
+                pro.setFoto(cursor.getBlob(9));
+                pro.setObservacoes(cursor.getString(10));
                 lista.add(pro);
             }while (cursor.moveToNext());
 
@@ -89,6 +111,13 @@ public class ProdutoDAO {
             pro.setNome(cursor.getString(1));
             pro.setCategoria(cursor.getString(2));
             pro.setCastracao(cursor.getString(3));
+            pro.setRaca(cursor.getString(4));
+            pro.setPorte(cursor.getString(5));
+            pro.setIdade(cursor.getString(6));
+            pro.setONG(cursor.getString(7));
+            pro.setContato(cursor.getString(8));
+            pro.setFoto(cursor.getBlob(9));
+            pro.setObservacoes(cursor.getString(10));
 
             return pro;
         } else{
