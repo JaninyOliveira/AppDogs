@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             lvProdutos.setEnabled(true);
         }
 
-        adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaDeProdutos);
+        adapter = new ListaDogAdapter(this,R.layout.tabela_dogs,listaDeProdutos);
         lvProdutos.setAdapter(adapter);
 
     }
