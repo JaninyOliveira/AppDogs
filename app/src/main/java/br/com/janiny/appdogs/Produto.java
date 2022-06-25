@@ -46,7 +46,7 @@ public class Produto {
     @Override
     public String toString() {
         return "Pet{" +
-                getFoto() + "  |  "+ nome + "  |  " + porte + "  |  " + idade;
+                getFoto() + "  |  "+ categoria + "  |  " + castracao;
     }
 
     public int getId() {

@@ -46,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
         lvProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this,FormularioActivity.class);
-                intent.putExtra("acao", "editar");
+                Intent intent = new Intent(MainActivity.this,FichaDogsActivity.class);
                 int idProduto = listaDeProdutos.get(position).getId();
                 intent.putExtra("idProduto",idProduto);
                 startActivity(intent);
