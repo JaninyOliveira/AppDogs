@@ -70,7 +70,7 @@ public class FichaDogsActivity extends AppCompatActivity {
         spCategorias.setText(produto.getCategoria());
         rdCastrado.setText(produto.getCastracao());
         etRaca.setText(produto.getRaca());
-        etPorte.setText(produto.getRaca());
+        etPorte.setText(produto.getPorte());
         etIdade.setText(produto.getIdade());
         etONG.setText(produto.getONG());
         etContato.setText(produto.getContato());
