@@ -48,7 +48,7 @@ public class FormularioActivity extends AppCompatActivity {
     Uri selectedImage;
     String part_image;
     private static final int PICK_IMAGE_REQUEST = 9544;
-    // Permissions for accessing the storage
+    // Permissão para acessar o arquivo
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -89,9 +89,7 @@ public class FormularioActivity extends AppCompatActivity {
         });
 
         acao = getIntent().getStringExtra("acao");
-        if(acao.equals("editar")){
-            carregarFormulario();
-        }
+
     }
 
     public void pick() {
@@ -114,7 +112,6 @@ public class FormularioActivity extends AppCompatActivity {
                     cursor.moveToFirst();
                     int indexImage = cursor.getColumnIndex(imageProjection[0]);
                     part_image = cursor.getString(indexImage);
-                    //imgPath.setText(part_image);                                                        // Get the image file absolute path
                     Bitmap bitmap = null;
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
@@ -129,11 +126,9 @@ public class FormularioActivity extends AppCompatActivity {
 
 
     public static void verifyStoragePermissions(Activity activity) {
-        // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
                     activity,
                     PERMISSIONS_STORAGE,
@@ -178,7 +173,7 @@ public class FormularioActivity extends AppCompatActivity {
 
             produto.setNome(nome);
             produto.setCategoria(spCategorias.getSelectedItem().toString());
-            produto.setCastracao(rdCastrado.isChecked() ? "Sim":"Não"); //TODO: trocar por valor do campo castracao
+            produto.setCastracao(rdCastrado.isChecked() ? "Sim":"Não");
 
             Bitmap bitmap = ((BitmapDrawable) imFoto.getDrawable()).getBitmap();
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
