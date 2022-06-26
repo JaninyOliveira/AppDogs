@@ -32,34 +32,6 @@ public class ProdutoDAO {
 
     }
 
-    public static void editar(Context context, Produto produto){
-
-        ContentValues valores = new ContentValues();
-        valores.put("nome",produto.getNome());
-        valores.put("categoria",produto.getCategoria());
-        valores.put("castracao",produto.getCastracao());
-        valores.put("raca",produto.getRaca());
-        valores.put("porte",produto.getPorte());
-        valores.put("idade",produto.getIdade());
-        valores.put("ONG",produto.getONG());
-        valores.put("contato",produto.getContato());
-        valores.put("foto",produto.getFoto());
-        valores.put("observacoes",produto.getObservacoes());
-
-        Banco conn = new Banco(context);
-        SQLiteDatabase db = conn.getWritableDatabase();
-
-        db.update("produto",valores, "id = " + produto.getId(),null);
-
-    }
-
-    public static void excluir(Context context, int idProduto){
-
-        Banco conn = new Banco(context);
-        SQLiteDatabase db = conn.getWritableDatabase();
-
-        db.delete("produto","id ="+idProduto,null);
-    }
 
     public static List<Produto> getProdutos(Context context){
 

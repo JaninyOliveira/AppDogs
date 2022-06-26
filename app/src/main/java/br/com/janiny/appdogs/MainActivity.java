@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,FormularioActivity.class);
+                Intent intent = new Intent(MainActivity.this, FormularioActivity.class);
                 intent.putExtra("acao", "inserir");
                 startActivity(intent);
             }
@@ -46,43 +46,16 @@ public class MainActivity extends AppCompatActivity {
         lvProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this,FichaDogsActivity.class);
+                Intent intent = new Intent(MainActivity.this, FichaDogsActivity.class);
                 int idProduto = listaDeProdutos.get(position).getId();
-                intent.putExtra("idProduto",idProduto);
+                intent.putExtra("idProduto", idProduto);
                 startActivity(intent);
-            }
-        });
-
-        lvProdutos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
-
-                excluir(position);
-                return true;
             }
         });
 
         carregarLista();
     }
 
-    private void excluir(int posicao){
-
-        Produto prodSelecionado = listaDeProdutos.get(posicao);
-        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
-        alerta.setTitle("Excluir");
-        alerta.setIcon(android.R.drawable.ic_delete);
-        alerta.setMessage("Confirma a exclusão do produto" + prodSelecionado.getNome() +"?");
-        alerta.setNeutralButton("Cancelar",null);
-
-        alerta.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                ProdutoDAO.excluir(MainActivity.this, prodSelecionado.getId());
-                carregarLista();
-            }
-        });
-        alerta.show();
-    }
 
     @Override
     protected void onRestart() {
@@ -91,20 +64,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void carregarLista(){
+    private void carregarLista() {
 
         listaDeProdutos = ProdutoDAO.getProdutos(this);
 
-        if(listaDeProdutos.size() == 0){
+        if (listaDeProdutos.size() == 0) {
             Produto fake;
-            fake = new Produto("Lista Vazia","");
+            fake = new Produto("Lista Vazia", "");
             listaDeProdutos.add(fake);
             lvProdutos.setEnabled(false);
-        }else{
+        } else {
             lvProdutos.setEnabled(true);
         }
 
-        adapter = new ListaDogAdapter(this,R.layout.tabela_dogs,listaDeProdutos);
+        adapter = new ListaDogAdapter(this, R.layout.tabela_dogs, listaDeProdutos);
         lvProdutos.setAdapter(adapter);
 
     }
@@ -118,12 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }
