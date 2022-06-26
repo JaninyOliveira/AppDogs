@@ -42,6 +42,8 @@ public class ListaDogAdapter extends ArrayAdapter<Produto> {
             ImageView tt1 = (ImageView) v.findViewById(R.id.dogImagem);
             TextView tt2 = (TextView) v.findViewById(R.id.dogRaca);
             TextView tt3 = (TextView) v.findViewById(R.id.listaCastrado);
+            TextView tt4 = (TextView) v.findViewById(R.id.dogNome);
+            TextView tt5 = (TextView) v.findViewById(R.id.dogPorte);
 
             if (tt1 != null) {
                 Bitmap bmp = BitmapFactory.decodeByteArray(p.getFoto(), 0, p.getFoto().length);
@@ -54,6 +56,14 @@ public class ListaDogAdapter extends ArrayAdapter<Produto> {
 
             if (tt3 != null) {
                 tt3.setText(p.getCastracao());
+            }
+
+            if (tt4 != null) {
+                tt4.setText(p.getNome());
+            }
+
+            if (tt5 != null) {
+                tt5.setText(p.getPorte());
             }
         }
 
