@@ -191,11 +191,8 @@ public class FormularioActivity extends AppCompatActivity {
                 ProdutoDAO.inserir(this,produto);
                 etNome.setText("");
                 spCategorias.setSelection(0, true);
-            } else {
-                ProdutoDAO.editar(this,produto);
                 finish();
-            }
-
+            } 
             Intent intent = new Intent(FormularioActivity.this,MainActivity.class);
             startActivity(intent);
 
